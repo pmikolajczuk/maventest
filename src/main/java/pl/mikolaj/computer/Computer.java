@@ -11,7 +11,7 @@ public class Computer {
     private Drive drive;
     private Headphones headphones;
 
-    List<USBDevice> usbDevices = new ArrayList<>();
+    private List<USBDevice> usbDevices = new ArrayList<>();
 
     public Computer(Monitor monitor, Drive drive) {
         this.monitor = monitor;
@@ -44,5 +44,9 @@ public class Computer {
 
     public List<USBDevice> getUsbDevices() {
         return usbDevices;
+    }
+
+    public void addUsbDevice(USBDevice usbDevice) {
+        usbDevices.add(usbDevice);
     }
 }

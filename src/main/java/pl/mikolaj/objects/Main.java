@@ -2,6 +2,11 @@ package pl.mikolaj.objects;
 
 public class Main {
     public static void main(String[] args) {
+        Garnek garnek = new Garnek(7, 5, "srebrny");
+
+    }
+
+    private void testRemoteControl(){
         RemoteControl remote = new RemoteControl("Black");
         remote.volumeUp();
         remote.volumeUp();

@@ -1,3 +1,5 @@
+package pl.mikolaj.book;
+
 public class Book {
     String author;
     String title;

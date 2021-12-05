@@ -1,3 +1,5 @@
+package pl.mikolaj.book;
+
 import com.google.gson.Gson;
 
 public class Main {

@@ -1,6 +1,6 @@
 package pl.mikolaj.computer.drive;
 
-import pl.mikolaj.computer.File;
+import pl.mikolaj.computer.file.File;
 
 import java.util.ArrayList;
 import java.util.List;

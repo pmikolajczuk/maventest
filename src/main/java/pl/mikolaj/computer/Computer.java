@@ -47,6 +47,18 @@ public class Computer {
     }
 
     public void addUsbDevice(USBDevice usbDevice) {
-        usbDevices.add(usbDevice);
+        boolean isConnected = usbDevice.connect();
+
+        if(isConnected) {
+            usbDevices.add(usbDevice);
+        }
+    }
+
+    public void removeUsbDevice(USBDevice usbDevice) {
+        boolean isDisconnected = usbDevice.disconnect();
+
+        if(isDisconnected) {
+            usbDevices.remove(usbDevice);
+        }
     }
 }

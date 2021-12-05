@@ -1,6 +1,6 @@
 package pl.mikolaj.computer.drive;
 
-import pl.mikolaj.computer.File;
+import pl.mikolaj.computer.file.File;
 
 public interface Drive {
     void addFile(File file);

@@ -22,9 +22,10 @@ public class HDDDrive implements Drive {
 
     @Override
     public File findFile(String name) {
-        return files.stream()
-                .filter(file -> file.getName().equals(name))
-                .findFirst()
-                .orElseThrow();
+//        return files.stream()
+//                .filter(file -> file.getName().equals(name))
+//                .findFirst()
+//                .orElseThrow();
+        return null;
     }
 }

@@ -1,12 +1,12 @@
 package pl.mikolaj.rest;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        DatabaseClientMock dbMock = new DatabaseClientMock();
+        SpringApplication.run(Main.class, args);
 
-
-
-        String usersString = dbMock.getUsers();
-        System.out.println(usersString);
     }
 }

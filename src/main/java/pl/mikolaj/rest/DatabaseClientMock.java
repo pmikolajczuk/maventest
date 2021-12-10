@@ -1,22 +1,30 @@
 package pl.mikolaj.rest;
 
 import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@RestController
 public class DatabaseClientMock {
     private Gson gson = new Gson();
     private List<User> users = new ArrayList<>();
 
+    public DatabaseClientMock() {
+        User user = new User("Piotr", 38, "yyy");
+        addUser(user);
+    }
+
+    @GetMapping("/users")
     public String getUsers() {
 
         String json = gson.toJson(users);
         return json;
     }
 
-    public String getUser(String userName) {
+    @GetMapping("/user/{userName}")
+    public String getUser(@PathVariable("userName")  String userName) {
         User user = users
                 .stream()
                 .filter(u -> userName.equals(u.getUserName()))
@@ -27,7 +35,8 @@ public class DatabaseClientMock {
         return json;
     }
 
-    public void addUser(User user) {
+    @PostMapping("/users")
+    public void addUser(@RequestBody User user) {
         users.add(user);
     }
 

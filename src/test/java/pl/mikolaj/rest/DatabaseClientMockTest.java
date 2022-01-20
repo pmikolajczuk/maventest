@@ -1,20 +1,22 @@
 package pl.mikolaj.rest;
 
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DatabaseClientMockTest {
 
     DatabaseClientMock dbMock;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         dbMock = new DatabaseClientMock();
 
-        User user = new User("Piotr", 38, "yyy");
-        dbMock.addUser(user);
+//        User user = new User("Piotr", 38, "yyy");
+//        dbMock.addUser(user);
 
 //        user = new User("Stefan", 34, "yyy");
 //        dbMock.addUser(user);
@@ -27,6 +29,6 @@ public class DatabaseClientMockTest {
         String usersString = dbMock.getUsers();
         System.out.println(usersString);
 
-        Assert.assertEquals(expected, usersString);
+        assertEquals(expected, usersString);
     }
 }

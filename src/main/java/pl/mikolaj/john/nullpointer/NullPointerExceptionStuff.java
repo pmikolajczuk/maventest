@@ -1,4 +1,6 @@
-package pl.mikolaj.john;
+package pl.mikolaj.john.nullpointer;
+
+import pl.mikolaj.john.Cat;
 
 import java.util.ArrayList;
 import java.util.List;

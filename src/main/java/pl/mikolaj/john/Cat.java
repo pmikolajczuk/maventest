@@ -1,6 +1,10 @@
 package pl.mikolaj.john;
 
-public class Cat {
+import pl.mikolaj.john.lambdas.Printable;
+
+import java.util.function.BiFunction;
+
+public class Cat implements Printable, BiFunction<String, String, String> {
 
     private String name;
     private int age;
@@ -23,5 +27,16 @@ public class Cat {
 
     public void makeNoise() {
         System.out.println("Meow");
+    }
+
+    @Override
+    public String print(String prefix, String suffix) {
+        System.out.println("Meow");
+        return "";
+    }
+
+    @Override
+    public String apply(String s, String s2) {
+        return print(s, s2);
     }
 }

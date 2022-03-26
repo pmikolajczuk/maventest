@@ -7,9 +7,6 @@ import java.util.function.BiFunction;
 public class Lambdas {
 
     public static void main(String[] args) {
-        Cat myCat = new Cat();
-        printThing(myCat);
-
         BiFunction<String, String, String> printableLambda = (p, s) -> p + " I'm a lambda " + s;
         printThing(printableLambda);
     }

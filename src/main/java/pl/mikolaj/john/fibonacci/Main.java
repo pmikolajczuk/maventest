@@ -1,4 +1,4 @@
-package pl.mikolaj.fibonacci;
+package pl.mikolaj.john.fibonacci;
 
 import java.util.ArrayList;
 import java.util.List;

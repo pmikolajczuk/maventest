@@ -18,6 +18,14 @@ public class Main {
         );
 
         // Imperative approach
+
+        long femalesCount = 0;
+        for(Person person : people) {
+            if(FEMALE.equals(person.gender)) {
+                femalesCount++;
+            }
+        }
+        System.out.println("Females count: " + femalesCount);
 //        List<Person> females = new ArrayList<>();
 //        for(Person person : people) {
 //            if(person.gender == FEMALE) {
@@ -30,10 +38,16 @@ public class Main {
 //        }
 
         // Declarative approach
+        femalesCount = people.stream()
+                .filter(person -> FEMALE.equals(person.gender))
+                .count();
+
+        System.out.println("Females count: " + femalesCount);
+
         Predicate<Person> personPredicate = person -> person.gender == FEMALE;
         List<Person> females2 = people.stream()
                 .filter(personPredicate)
-                .collect(Collectors.toList());
+                .toList();
 
         females2.forEach(System.out::println);
 

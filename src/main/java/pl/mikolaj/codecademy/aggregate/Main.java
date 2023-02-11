@@ -41,7 +41,7 @@ public class Main {
         return words.stream()
                 .collect(Collectors.groupingBy(
                         s -> s,
-                        Collectors.reducing(0, w -> 1, (sum, x) -> sum +1))
+                        Collectors.reducing(0, w -> 1, (sum, x) -> sum + 1))
                 );
     }
 

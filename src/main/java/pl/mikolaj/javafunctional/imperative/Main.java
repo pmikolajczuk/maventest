@@ -26,16 +26,16 @@ public class Main {
             }
         }
         System.out.println("Females count: " + femalesCount);
-//        List<Person> females = new ArrayList<>();
-//        for(Person person : people) {
-//            if(person.gender == FEMALE) {
-//                females.add(person);
-//            }
-//        }
-//
-//        for(Person female : females) {
-//            System.out.println(female);
-//        }
+        List<Person> females = new ArrayList<>();
+        for(Person person : people) {
+            if(person.gender == FEMALE) {
+                females.add(person);
+            }
+        }
+
+        for(Person female : females) {
+            System.out.println(female);
+        }
 
         // Declarative approach
         femalesCount = people.stream()

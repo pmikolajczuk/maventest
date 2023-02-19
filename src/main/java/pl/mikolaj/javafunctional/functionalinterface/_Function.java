@@ -25,7 +25,9 @@ public class _Function {
     static Function<Integer, Integer> multiplyBy10Function = number -> number * 10;
 
     static BiFunction<Integer, Integer, Integer> incrementByOneAndMultiplyFunction =
-        (number, numToMultiplyBy) -> (number + 1) * numToMultiplyBy;
+        //(number, numToMultiplyBy) -> (number + 1) * numToMultiplyBy;
+            _Function::incrementByOneAndMultiply;
+
 
     static int incrementByOneAndMultiply(int number, int numToMultiplyBy) {
         return ++number * numToMultiplyBy;

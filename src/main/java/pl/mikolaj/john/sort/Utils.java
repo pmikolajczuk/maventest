@@ -8,7 +8,7 @@ public class Utils {
         int[] numbers = new int[size];
 
         for(int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
+            numbers[i] = rand.nextInt(100000);
         }
         return numbers;
     }
@@ -16,6 +16,13 @@ public class Utils {
     public static void printArray(int[] numbers) {
         for(int number : numbers){
             System.out.print(number + ", ");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(int[] numbers, int first, int last) {
+        for(int i = first; i <= last; i++){
+            System.out.print(numbers[i] + ", ");
         }
         System.out.println();
     }

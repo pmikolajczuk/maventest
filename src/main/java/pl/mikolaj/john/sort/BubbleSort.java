@@ -3,7 +3,7 @@ package pl.mikolaj.john.sort;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] numbers = Utils.generateArray(10);
+        int[] numbers = Utils.generateArray(100000);
         System.out.println("Before: ");
         Utils.printArray(numbers);
 

@@ -8,7 +8,7 @@ public class Utils {
         int[] numbers = new int[size];
 
         for(int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100000);
+            numbers[i] = rand.nextInt(10);
         }
         return numbers;
     }

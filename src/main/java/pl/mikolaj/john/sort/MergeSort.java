@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] numbers = Utils.generateArray(10);
+        int[] numbers = Utils.generateArray(10_000_000);
         //int[] numbers = {3, 1};//, 8, 6, 2};
         System.out.println("Before: ");
-        Utils.printArray(numbers);
+        //Utils.printArray(numbers);
 
         mergeSortV2(numbers);
         System.out.println("After:");
-        Utils.printArray(numbers);
+        //Utils.printArray(numbers);
     }
 
     private static void mergeSort(int[] numbers) {

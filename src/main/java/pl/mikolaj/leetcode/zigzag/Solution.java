@@ -4,15 +4,16 @@ public class Solution {
     public String convert(String s, int numRows) {
         int numCols = calculateNumberOfColumns(s, numRows);
         char[][] zigzag = buildZigZag(s, numRows, numCols);
+        printZigZag(zigzag);
         return zigZagToString(zigzag);
     }
 
     private String zigZagToString(char[][] zigzag) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < zigzag.length; i++) {
-            for (int j = 0; j < zigzag[i].length; j++) {
-                if (zigzag[i][j] != 0) {
-                    sb.append(zigzag[i][j]);
+        for (char[] row : zigzag) {
+            for (char c : row) {
+                if (c != 0) {
+                    sb.append(c);
                 }
             }
         }
@@ -27,27 +28,15 @@ public class Solution {
             }
             return zigzag;
         }
-
-        int j = 0, k = 0;
-        boolean down = true;
-        for (int i = 0; i < s.length(); i++) {
-            zigzag[j][k] = s.charAt(i);
-            if (down) {
-                j++;
-                if (j == numRows) {
-                    j -= 2;
-                    k++;
-                    if(j > 0) {
-                        down = false;
-                    }
-                }
-            } else {
-                j--;
-                k++;
-                if (j == 0) {
-                    down = true;
-                }
-
+        int i = 0;
+        int k = 0;
+        while (i < s.length()) {
+            for (int j = 0; j < numRows && i < s.length(); j++, i++) {
+                zigzag[j][k] = s.charAt(i);
+            }
+            k++;
+            for (int j = numRows - 2; j > 0 && i < s.length(); j--, k++, i++) {
+                zigzag[j][k] = s.charAt(i);
             }
         }
         return zigzag;
@@ -57,10 +46,11 @@ public class Solution {
         if (numRows == 1) {
             return s.length();
         }
-        int numCols = 0;
-        boolean down = true;
 
-        for (int i = 0; i < s.length(); ) {
+        int numCols = 0;
+        int i = 0;
+        boolean down = true;
+        while (i < s.length()) {
             if (down) {
                 i += numRows;
                 down = false;
@@ -84,11 +74,11 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        String s = "ABCD";
-        //String s = "PAYPALISHIRING";
+        //String s = "ABCD";
+        String s = "PAYPALISHIRING";
         //String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Solution solution = new Solution();
-        String result = solution.convert(s, 2);
+        String result = solution.convert(s, 4);
         System.out.println(result);
     }
 }

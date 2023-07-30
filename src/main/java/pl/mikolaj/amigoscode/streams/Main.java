@@ -79,6 +79,10 @@ public class Main {
                 .reduce(0, (ageSum, person) -> ageSum + person.getAge(), Integer::sum);
         System.out.println("Age Sum 2: " + ageSum2);
 
+        Integer ageSum3 = getPeople().parallelStream()
+                .collect(Collectors.reducing(0, Person::getAge, Integer::sum));
+        System.out.println("Age Sum 3: " + ageSum3);
+
 
     }
 

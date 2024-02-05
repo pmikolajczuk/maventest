@@ -1,8 +1,13 @@
 package pl.mikolaj.misc.fizzbuzz;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,14 +16,19 @@ public class Main {
         //fizzBuzz3();
         //fizzBuzz4();
         //fizzBuzz5();
-        fizzBuzz6();
+        //fizzBuzz6();
+
+        //fizzBuzzGroupBy2a();
     }
 
-    public static Map<String, List<Integer>> fizzBuzzGroupBy3() {
-        return IntStream.rangeClosed(1, 30)
-                .boxed()
-                .redu
-    }
+//    public static Map<String, List<Integer>> fizzBuzzGroupBy3() {
+//        return IntStream.rangeClosed(1, 30)
+//                .boxed()
+//                .reduce((integer, integer2) -> )
+//    }
+
+
+
 
     public static Map<String, List<Integer>> fizzBuzzGroupBy2() {
         return IntStream.rangeClosed(1, 30)

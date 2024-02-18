@@ -57,5 +57,7 @@ public class E2_TypeSpecific_Functionality {
         System.out.println(priceService.computePrice(REGULAR, 2));
         System.out.println(priceService.computePrice(NEW_RELEASE, 2));
         System.out.println(priceService.computePrice(CHILDREN, 2));
+
+        System.out.println(REGULAR.computePrice.apply(priceService, 5));
     }
 }

@@ -30,7 +30,7 @@ public class MapMultiExamples {
         IntStream.rangeClosed(1, 30)
                 .boxed()
                 .flatMap(integer -> Stream.of(integer, integer, integer))
-                .mapMulti(new MapMultiDistinctMapper<>())
+                .mapMulti(new MapMultiDistinctMapper<Integer, Integer>())
                 .toList()
                 .forEach(System.out::println);
     }

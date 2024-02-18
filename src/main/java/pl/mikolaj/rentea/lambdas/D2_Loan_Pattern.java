@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 interface OrderRepo {
@@ -65,7 +66,12 @@ class Order {
 
 @FunctionalInterface
 interface CheckedConsumer<T, E extends Throwable> {
-    public void accept(T t) throws E;
+    void accept(T t) throws E;
+}
+
+@FunctionalInterface
+interface CheckedFunction<T, R, E extends Throwable> {
+    R apply(T t) throws E;
 }
 
 class Unchecked {
@@ -73,6 +79,16 @@ class Unchecked {
         return t -> {
             try {
                 consumer.accept(t);
+            } catch (Throwable e) {
+                throw new RuntimeException(e);
+            }
+        };
+    }
+
+    public static <T, R, E extends Throwable> Function<T,R> function(CheckedFunction<T, R, E> function) {
+        return t -> {
+            try {
+                return function.apply(t);
             } catch (Throwable e) {
                 throw new RuntimeException(e);
             }

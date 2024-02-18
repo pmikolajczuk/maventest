@@ -1,31 +1,36 @@
 package pl.mikolaj.recursion.fibonacci;
 
+import pl.mikolaj.recursion.memoize.Memoize;
+
+import java.util.function.Function;
+
 public class FibonacciExample {
-
-    static long[] cache;
-
     public static void main(String[] args) {
+//        System.out.println(fibonacci(45));
+//        System.out.println(fibonacci(45));
+//        System.out.println(fibonacci(45));
 
-        int n=50;
-        cache = new long[n+1];
-        System.out.println(fibonacci(n));
+//        Memoize<Integer, Integer> memoize = new Memoize<>();
+//        Function<Integer, Integer> memoizeFibonacci = memoize.memoizeFn(FibonacciExample::fibonacci);
+//        System.out.println(memoizeFibonacci.apply(45));
+//        System.out.println(memoizeFibonacci.apply(45));
+//        System.out.println(memoizeFibonacci.apply(45));
 
+        FibonacciFast fibonacciFast = new FibonacciFast();
+        System.out.println(fibonacciFast.fibonacciFast(40));
+        System.out.println(fibonacciFast.fibonacciFast(40));
     }
 
-    public static long fibonacci(int n) {
-        long f = cache[n];
-        if(f != 0) {
-            return f;
-        }
-        if (n == 0) {
-            return 0;
-        }
-        else if(n == 1) {
-            return 1;
-        }else {
-            f = fibonacci(n-1) + fibonacci(n-2);
-            cache[n] = f;
-            return f;
+    private static int fibonacci(int n) {
+        return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    private static class FibonacciFast {
+        Memoize<Integer, Integer> memoize = new Memoize<>();
+        Function<Integer, Integer> memoizeFibonacciFast = memoize.memoizeFn(this::fibonacciFast);
+
+        private int fibonacciFast(int n) {
+            return n <=1 ? n :  memoizeFibonacciFast.apply(n - 1) + memoizeFibonacciFast.apply(n - 2);
         }
     }
 }

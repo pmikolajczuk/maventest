@@ -51,6 +51,21 @@ public class Main {
                 .getValue();
     }
 
+    public static Map<String, List<Integer>> fizzBuzzGroupBy1a() {
+        Map<String, List<Integer>> result = new HashMap<>();
+        for (int i = 1; i <= 30; i++) {
+            final int finalI = i;
+            if (finalI % 15 == 0) {
+                result.compute("FizzBuzz", (k, v) -> v == null ? new ArrayList<>() : v).add(i);
+            } else if (finalI % 3 == 0) {
+                result.merge("Fizz", new ArrayList<>(), (integers, integers2) -> integers).add(i);
+            } else if (finalI % 5 == 0) {
+                result.computeIfAbsent("Buzz", k -> new ArrayList<>()).add(i);
+            }
+        }
+        return result;
+    }
+
     public static Map<String, List<Integer>> fizzBuzzGroupBy1() {
         Map<String, List<Integer>> result = new HashMap<>();
         for (int i = 1; i <= 30; i++) {

@@ -2,6 +2,7 @@ package pl.mikolaj.misc.streams;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class MapReduceExamples {
@@ -58,10 +59,11 @@ public class MapReduceExamples {
             int sum = Arrays.stream(numbers).reduce(0, (a, b) -> a + b);
             System.out.println("Sum 1: " + sum);
 
+            ArrayList<Integer> identity = new ArrayList<>();
             List<Integer> collected1 = Arrays.stream(numbers)
                     .parallel()
                     .boxed()
-                    .reduce(new ArrayList<>(),
+                    .reduce(identity,
                             (integers, i) -> {
                                 integers = new ArrayList<>(integers);
                                 integers.add(i);
@@ -113,6 +115,22 @@ public class MapReduceExamples {
                     .toString();
 
             System.out.println(concatenations3);
+
+            @SuppressWarnings("replace")
+            String concatenations4 = Arrays.stream(numbers)
+                    .parallel()
+                    .boxed()
+                    .collect(Collectors.mapping(
+                            String::valueOf,
+                            Collector.of(
+                                    () -> new StringJoiner(""),
+                                    StringJoiner::add,
+                                    StringJoiner::merge,
+                                    StringJoiner::toString
+                            )
+                    ));
+
+            System.out.println(concatenations4);
         }
     }
 

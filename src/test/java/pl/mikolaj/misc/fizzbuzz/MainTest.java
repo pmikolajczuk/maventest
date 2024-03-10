@@ -18,6 +18,7 @@ class MainTest {
                 );
 
         checkResult(expectedResult, Main::fizzBuzzGroupBy1);
+        checkResult(expectedResult, Main::fizzBuzzGroupBy1a);
         checkResult(expectedResult, Main::fizzBuzzGroupBy2);
     }
 

@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
-	Map<Integer, String> customMap = new LinkedHashMap();
+	Map<Integer, String> customMap = new LinkedHashMap<>();
 	{
 		customMap.put(3, "Fizz");
 		customMap.put(5, "Buzz");

@@ -23,9 +23,14 @@ class SortTest {
 		processSortingMethod(SelectionSort::sort);
 	}
 
+	@Test
+	void mergeSort() {
+		processSortingMethod(MergeSort::sort);
+	}
+
 	void processSortingMethod(Consumer<int[]> method) {
-		//int[] numbers = new int[]{3,1,8,6,2};
-		int[] numbers = generateArray();
+		int[] numbers = new int[]{38,27,43,3,9,82,10};
+		//int[] numbers = generateArray();
 		printArray(numbers);
 		System.out.println("Sorted: " + isSorted(numbers));
 		method.accept(numbers);

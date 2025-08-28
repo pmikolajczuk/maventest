@@ -41,10 +41,10 @@ class SortTest {
 
 	private int[] generateArray() {
 		Random rand = new Random();
-		int[] numbers = new int[10];
+		int[] numbers = new int[10_000];
 
 		for(int i = 0; i < numbers.length; i++) {
-			numbers[i] = rand.nextInt(10);
+			numbers[i] = rand.nextInt(10000);
 		}
 		return numbers;
 	}
